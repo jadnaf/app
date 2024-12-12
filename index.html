@@ -1,417 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Integration Genie for Consultants - Empower Your Clients with Seamless Integrations</title>
-    <!-- Import Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        h1, h2, h3 {
-            margin: 0;
-            padding: 0;
-        }
-        p {
-            line-height: 1.6em;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tool Match - Personalized Business Software Recommendations">
+  <title>Tool Match</title>
+  <!-- Example font integration: -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    /* Header & Nav */
+    header {
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #fff;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+    }
+    .logo-container img {
+      height: 30px;
+      margin-right: 0.5rem;
+    }
+    .search-container {
+      display: flex;
+      flex: 1;
+      max-width: 500px;
+      margin: 0 2rem;
+      background: #f0f0f0;
+      border-radius: 8px;
+      align-items: center;
+      padding: 0.5rem;
+    }
+    .search-dropdown {
+      border: none;
+      background: transparent;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+    }
+    .search-input {
+      border: none;
+      background: transparent;
+      flex: 1;
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+    .search-input:focus {
+      outline: none;
+    }
+    nav .nav-links {
+      display: flex;
+      align-items: center;
+    }
+    nav .nav-links a {
+      color: #333;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+    nav .my-account {
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 0.5rem 0.75rem;
+      font-weight: 500;
+    }
 
-        /* Header Styles */
-        header {
-            background-color: #0066cc;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px 50px 20px;
-            position: relative;
-        }
-        header h1 {
-            font-size: 2.8em;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        header p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-        }
-        header .subheader {
-            font-size: 1.1em;
-            margin-bottom: 50px;
-            color: #e0e0e0;
-        }
-        .cta {
-            margin-top: 20px;
-        }
-        .cta input[type="email"] {
-            padding: 15px;
-            font-size: 1em;
-            width: 280px;
-            max-width: 100%;
-            margin-right: 10px;
-            border: none;
-            border-radius: 30px;
-            outline: none;
-        }
-        .cta button {
-            padding: 15px 30px;
-            font-size: 1em;
-            background-color: #ff9900;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        .cta button:hover {
-            background-color: #e68a00;
-        }
-        /* Confirmation Message */
-        #confirmation-message {
-            margin-top: 20px;
-            color: green;
-            font-weight: bold;
-            display: none;
-        }
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #f9f9f9;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #555;
+      margin: 0 auto;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
 
-        /* Section Styles */
-        section {
-            padding: 60px 20px;
-            position: relative;
-            background-color: #fff;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .section-title h2 {
-            font-size: 2.2em;
-            color: #0066cc;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .section-title p {
-            font-size: 1.1em;
-            color: #555;
-        }
+    /* Email Signup (from old code) */
+    .cta-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .cta-container form {
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .cta-container input[type="email"] {
+      padding: 15px;
+      font-size: 1em;
+      width: 280px;
+      max-width: 100%;
+      margin-right: 10px;
+      border: none;
+      border-radius: 30px;
+      outline: none;
+    }
+    .cta-container button {
+      padding: 15px 30px;
+      font-size: 1em;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .cta-container button:hover {
+      background-color: #333;
+    }
+    #confirmation-message {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+      display: none;
+      text-align: center;
+    }
 
-        /* Features Section */
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .feature-item {
-            flex: 1 1 45%;
-            max-width: 45%;
-            margin: 20px;
-            text-align: center;
-            padding: 20px;
-        }
-        .feature-item img {
-            width: 60px;
-            margin-bottom: 20px;
-        }
-        .feature-item h3 {
-            font-size: 1.5em;
-            color: #00509e;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .feature-item p {
-            color: #666;
-        }
+    /* Video Section */
+    .video-section {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
 
-        /* How It Works Section */
-        .how-it-works {
-            background-color: #f0f4f8;
-        }
-        .steps {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .step-item {
-            flex: 1 1 28%;
-            max-width: 28%;
-            text-align: center;
-            margin: 20px;
-            position: relative;
-            padding: 20px;
-        }
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background-color: #ff9900;
-            color: #fff;
-            border-radius: 50%;
-            display: inline-block;
-            line-height: 50px;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        .step-item h3 {
-            font-size: 1.4em;
-            color: #00509e;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .step-item p {
-            color: #555;
-        }
+    /* Features Section */
+    .features-section {
+      background: #fff;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    .feature {
+      background: #fafafa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .feature h3 {
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #333;
+    }
+    .feature p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
 
-        /* Testimonials Section */
-        .testimonials {
-            background-color: #fff;
-        }
-        .testimonial-item {
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-            text-align: center;
-            padding: 30px;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            background-color: #fafafa;
-        }
-        .testimonial-item img {
-            width: 80px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-        .testimonial-item p {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        .testimonial-item h4 {
-            font-size: 1.2em;
-            color: #0066cc;
-            font-weight: 700;
-        }
-
-        /* Partners Section */
-        .partners {
-            background-color: #f0f4f8;
-            text-align: center;
-        }
-        .partners h2 {
-            margin-bottom: 40px;
-        }
-        .partners img {
-            max-width: 120px;
-            margin: 15px;
-            transition: transform 0.3s;
-        }
-        .partners img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: #fff;
-            text-align: center;
-        }
-        .contact .cta {
-            margin-top: 20px;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #00509e;
-            color: #fff;
-            text-align: center;
-            padding: 30px 20px;
-        }
-        footer a {
-            color: #ffcc00;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 800px) {
-            .feature-item, .step-item {
-                flex: 1 1 80%;
-                max-width: 80%;
-            }
-        }
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
-            .feature-item, .step-item {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-            .cta input[type="email"], .cta button {
-                width: 100%;
-                margin-bottom: 15px;
-            }
-            .cta input[type="email"] {
-                margin-right: 0;
-            }
-        }
-    </style>
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-<header>
-    <h1>Integration Genie for Consultants: Elevate Your Client Solutions</h1>
-    <p class="subheader">Empower your clients with seamless tech integrations</p>
-    <p>We help consultants like you provide top-tier digital transformation services to your clients—efficiently and effectively.</p>
-    <div class="cta">
-        <form id="getform" action="https://getform.io/f/bkkkgoob" method="POST">
-            <input type="email" name="email" id="emailInput" placeholder="Enter your email" required>
-            <button type="submit">Get Started</button>
-        </form>
-        <p id="confirmation-message">Thank you! You've been added to our mailing list.</p>
+
+  <header>
+    <div class="logo-container">
+      <!-- Replace src with your logo image -->
+      <img src="logo.png" alt="Tool Match Logo">
     </div>
-</header>
-<section class="features">
-    <div class="section-title">
-        <h2>Why Integration Genie?</h2>
-        <p>Enhance your consultancy services with AI-powered integration solutions.</p>
+    <div class="search-container">
+      <select class="search-dropdown" aria-label="Tool Category">
+        <option>Tool</option>
+        <option>CRM</option>
+        <option>Project Management</option>
+        <option>Marketing</option>
+      </select>
+      <input class="search-input" type="text" placeholder="Search tools..." aria-label="Search tools">
     </div>
-    <div class="features">
-        <div class="feature-item">
-            <img src="https://github.com/jadnaf/app/blob/main/growtika-nGoCBxiaRO0-unsplash%20(1).jpg?raw=true" alt="AI Insights" style="width: 500px; max-width: 100%; height: auto; margin-bottom: 20px;">
-            <h3>AI-Powered Integration Analysis</h3>
-            <p>Quickly analyze and identify the best tools and integrations for your clients' unique needs.</p>
-        </div>
-        <div class="feature-item">
-            <img src="https://github.com/jadnaf/app/blob/main/andrew-neel-ADjcacMLblo-unsplash.jpg?raw=true" alt="Client Success" style="width: 500px; max-width: 100%; height: auto; margin-bottom: 20px;">
-            <h3>Boost Client Success</h3>
-            <p>Deliver seamless, scalable solutions that enhance your clients' operations and satisfaction.</p>
-        </div>
+    <nav>
+      <div class="nav-links">
+        <a href="#browse-tools">Browse Tools</a>
+        <a href="#about-us">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#account" class="my-account">My Account</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Running a business is hard enough. Finding the right tools shouldn’t be.</h1>
+    <p>Tool Match connects you with the right tools to grow your business.</p>
+  </section>
+
+  <!-- Email Collection (using old code's form) -->
+  <div class="cta-container">
+    <form id="getform" action="https://getform.io/f/bkkkgoob" method="POST">
+      <input type="email" name="email" id="emailInput" placeholder="Enter your email" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <p id="confirmation-message">Thank you! You've been added to our mailing list.</p>
+  </div>
+
+  <!-- Video -->
+  <section class="video-section">
+    <!-- Replace the src below with your video embed URL -->
+    <iframe width="560" height="315"
+            src="https://youtu.be/R_zXuVReajA?si=LEyQbjD-ZWvRUbRs"
+            title="Tool Match Overview Video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+  </section>
+
+  <!-- Features Section (User Input, AI Analysis, Tool Matching, Results) -->
+  <section class="features-section">
+    <div class="feature">
+      <h3>User Input</h3>
+      <p>Describe your business, current tools, and specific needs in a simple, user-friendly interface.</p>
     </div>
-</section>
-<section class="how-it-works">
-    <div class="section-title">
-        <h2>How It Works for Consultants</h2>
+    <div class="feature">
+      <h3>AI Analysis</h3>
+      <p>Our platform uses advanced AI (OpenAI’s API) to interpret your requirements and generate precise tool recommendations.</p>
     </div>
-    <div class="steps">
-        <div class="step-item">
-            <div class="step-number">1</div>
-            <h3>Share Client Requirements</h3>
-            <p>Provide details about your clients' current systems and integration goals.</p>
-        </div>
-        <div class="step-item">
-            <div class="step-number">2</div>
-            <h3>Receive Tailored Recommendations</h3>
-            <p>Our AI generates customized integration plans to meet your clients' specific needs.</p>
-        </div>
-        <div class="step-item">
-            <div class="step-number">3</div>
-            <h3>Implement and Impress</h3>
-            <p>Deliver top-notch solutions, enhancing your reputation and client satisfaction.</p>
-        </div>
+    <div class="feature">
+      <h3>Tool Matching</h3>
+      <p>We query our database of software tools, complete with integration details, to find the best solutions for you.</p>
     </div>
-</section>
-<section class="testimonials">
-    <div class="section-title">
-        <h2>Consultants Trust Integration Genie</h2>
+    <div class="feature">
+      <h3>Results &amp; Integrations</h3>
+      <p>View recommended tools with details on why they fit your needs and how they integrate seamlessly into your existing stack.</p>
     </div>
-    <div class="testimonial-item">
-        <img src="consultant1.jpg" alt="Consultant 1">
-        <p>"Integration Genie has revolutionized how I serve my clients. The AI-driven insights are invaluable."</p>
-        <h4>— Morgan K., Digital Transformation Consultant</h4>
-    </div>
-    <div class="testimonial-item">
-        <img src="consultant2.jpg" alt="Consultant 2">
-        <p>"Their platform allows me to deliver faster, more effective solutions. My clients couldn't be happier."</p>
-        <h4>— Riley S., Business Strategy Consultant</h4>
-    </div>
-</section>
-<section class="partners">
-    <div class="section-title">
-        <h2>Top Integrations for Your Clients</h2>
-    </div>
-    <!-- Replace with actual logos -->
-    <img src="logo1.png" alt="Integration 1">
-    <img src="logo2.png" alt="Integration 2">
-    <img src="logo3.png" alt="Integration 3">
-    <img src="logo4.png" alt="Integration 4">
-</section>
-<section class="contact">
-    <div class="section-title">
-        <h2>Stay Updated</h2>
-        <p>Subscribe to receive the latest insights and resources for consultants.</p>
-    </div>
-    <div class="cta">
-        <form id="getform2" action="https://getform.io/f/bkkkgoob" method="POST">
-            <input type="email" name="email" id="emailInput2" placeholder="Enter your email" required>
-            <button type="submit">Join Our Consultant Network</button>
-        </form>
-        <p id="confirmation-message2">Thank you! You've been added to our mailing list.</p>
-    </div>
-</section>
-<footer>
-    <p>Questions? We're here to help: <a href="mailto:integrationgenie@gmail.com">integrationgenie@gmail.com</a></p>
-    <p><em>Efficient. Empowering. Exceptional.</em></p>
-</footer>
-<!-- JavaScript to handle form submissions -->
-<script>
-    // Handle the first form
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Tool Match. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript to handle the form submissions (from old code) -->
+  <script>
     document.getElementById("confirmation-message").style.display = "none";
 
     document.getElementById("getform").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
+      event.preventDefault(); // Prevent default form submission
 
-        var form = event.target;
-        var data = new FormData(form);
+      var form = event.target;
+      var data = new FormData(form);
 
-        fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(function(response) {
-            if (response.ok) {
-                document.getElementById("confirmation-message").style.display = "block";
-                form.reset();
-            } else {
-                alert("There was an issue with your submission. Please try again.");
-            }
-        }).catch(function(error) {
-            alert("Oops! There was a problem submitting your form.");
-        });
+      fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(function(response) {
+        if (response.ok) {
+          document.getElementById("confirmation-message").style.display = "block";
+          form.reset();
+        } else {
+          alert("There was an issue with your submission. Please try again.");
+        }
+      }).catch(function(error) {
+        alert("Oops! There was a problem submitting your form.");
+      });
     });
+  </script>
 
-    // Handle the second form
-    document.getElementById("confirmation-message2").style.display = "none";
-
-    document.getElementById("getform2").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        var form = event.target;
-        var data = new FormData(form);
-
-        fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(function(response) {
-            if (response.ok) {
-                document.getElementById("confirmation-message2").style.display = "block";
-                form.reset();
-            } else {
-                alert("There was an issue with your submission. Please try again.");
-            }
-        }).catch(function(error) {
-            alert("Oops! There was a problem submitting your form.");
-        });
-    });
-</script>
 </body>
 </html>
