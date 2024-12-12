@@ -15,18 +15,24 @@
       background: #f9f9f9;
       color: #333;
     }
+
     /* Header & Nav */
     header {
-      display: flex;
-      align-items: center;
-      padding: 1rem 2rem;
       background: #fff;
       border-bottom: 1px solid #e6e6e6;
+      padding: 1rem 0;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      justify-content: space-between;
     }
     .logo-container {
       display: flex;
       align-items: center;
-      margin-right: 1rem;
     }
     .logo-container img {
       height: 30px;
@@ -34,13 +40,13 @@
     }
     .search-container {
       display: flex;
-      flex: 1;
-      max-width: 500px;
-      margin: 0 2rem;
+      align-items: center;
       background: #f0f0f0;
       border-radius: 8px;
-      align-items: center;
       padding: 0.5rem;
+      margin: 0 2rem;
+      max-width: 500px;
+      flex: 1;
     }
     .search-dropdown {
       border: none;
@@ -92,12 +98,11 @@
     .hero p {
       font-size: 1.2rem;
       color: #555;
-      margin: 0 auto;
       max-width: 600px;
-      margin-bottom: 2rem;
+      margin: 0 auto 2rem auto;
     }
 
-    /* Email Signup (from old code) */
+    /* Email Signup */
     .cta-container {
       text-align: center;
       margin-bottom: 2rem;
@@ -174,6 +179,25 @@
       line-height: 1.5;
     }
 
+    /* More Info Section */
+    .more-info {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .more-info h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .more-info p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -181,32 +205,41 @@
       color: #777;
       margin-top: 2rem;
     }
+
+    @media (max-width: 768px) {
+      .search-container {
+        margin: 0 1rem;
+        max-width: 300px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="logo-container">
-      <!-- Replace src with your logo image -->
-      <img src="logo.png" alt="Tool Match Logo">
-    </div>
-    <div class="search-container">
-      <select class="search-dropdown" aria-label="Tool Category">
-        <option>Tool</option>
-        <option>CRM</option>
-        <option>Project Management</option>
-        <option>Marketing</option>
-      </select>
-      <input class="search-input" type="text" placeholder="Search tools..." aria-label="Search tools">
-    </div>
-    <nav>
-      <div class="nav-links">
-        <a href="#browse-tools">Browse Tools</a>
-        <a href="#about-us">About Us</a>
-        <a href="#contact">Contact</a>
-        <a href="#account" class="my-account">My Account</a>
+    <div class="header-inner">
+      <div class="logo-container">
+        <!-- Replace src with your logo image -->
+        <img src="logo.png" alt="Tool Match Logo">
       </div>
-    </nav>
+      <div class="search-container">
+        <select class="search-dropdown" aria-label="Tool Category">
+          <option>Tool</option>
+          <option>CRM</option>
+          <option>Project Management</option>
+          <option>Marketing</option>
+        </select>
+        <input class="search-input" type="text" placeholder="Search tools..." aria-label="Search tools">
+      </div>
+      <nav>
+        <div class="nav-links">
+          <a href="#browse-tools">Browse Tools</a>
+          <a href="#about-us">About Us</a>
+          <a href="#contact">Contact</a>
+          <a href="#account" class="my-account">My Account</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <section class="hero">
@@ -214,7 +247,7 @@
     <p>Tool Match connects you with the right tools to grow your business.</p>
   </section>
 
-  <!-- Email Collection (using old code's form) -->
+  <!-- Email Collection -->
   <div class="cta-container">
     <form id="getform" action="https://getform.io/f/bkkkgoob" method="POST">
       <input type="email" name="email" id="emailInput" placeholder="Enter your email" required>
@@ -234,7 +267,7 @@
     </iframe>
   </section>
 
-  <!-- Features Section (User Input, AI Analysis, Tool Matching, Results) -->
+  <!-- Features Section -->
   <section class="features-section">
     <div class="feature">
       <h3>User Input</h3>
@@ -254,11 +287,18 @@
     </div>
   </section>
 
+  <!-- More Info Section -->
+  <section class="more-info">
+    <h2>Take Your Business to the Next Level</h2>
+    <p>With Tool Match, you’re not just getting a list of tools—you’re receiving personalized recommendations tailored to your unique business operations. Our proprietary AI-driven analysis ensures that each suggested solution can integrate smoothly into your current workflows, enhancing efficiency and streamlining processes.</p>
+    <p>Ready to empower your team with the best digital solutions? With Tool Match, it’s easier than ever to cut through the noise and find exactly what you need. Get started today and discover how the right tools can propel your business forward.</p>
+  </section>
+
   <footer>
     <p>&copy; 2024 Tool Match. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript to handle the form submissions (from old code) -->
+  <!-- JavaScript to handle the form submissions -->
   <script>
     document.getElementById("confirmation-message").style.display = "none";
 
